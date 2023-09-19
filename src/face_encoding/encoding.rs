@@ -28,6 +28,13 @@ impl FaceEncoding {
         Self { inner }
     }
 
+    /// returns face encoding as &[f64]
+    #[inline]
+    fn to_slice(&self) -> &[f64] {
+        self.as_ref()
+    }
+    // TODO wrapper around bin format
+
     /// Create a new encoding using previously stored values
     /// from a f64 Vec.
     pub fn from_vec(values: &Vec<f64>) -> Result<Self, ArraySizeError> {
